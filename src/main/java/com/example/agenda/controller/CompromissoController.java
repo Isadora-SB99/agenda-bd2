@@ -22,35 +22,35 @@ public class CompromissoController {
     }
 
     @PostMapping
-    public CompromissoModel criarCompromisso(CompromissoModel compromissoModel) {
+    public CompromissoModel criarCompromisso(@RequestBody CompromissoModel compromissoModel) {
         return compromissoService.criarCompromisso(compromissoModel);
     }
 
     @PatchMapping("/titulo")
-    public CompromissoModel alterarTituloCompromisso(String compromissoId, String novoTitulo) {
+    public CompromissoModel alterarTituloCompromisso(@RequestParam(name="compromissoId") String compromissoId, @RequestParam(name="novoTitulo") String novoTitulo) {
         return compromissoService.alterarTituloCompromisso(compromissoId, novoTitulo);
     }
 
     @PatchMapping("/descricao")
-    public CompromissoModel alterarDescricaoCompromisso(String compromissoId, String novaDescricao) {
+    public CompromissoModel alterarDescricaoCompromisso(@RequestParam(name="compromissoId") String compromissoId, @RequestParam(name="novaDescricao") String novaDescricao) {
 
         return compromissoService.alterarDescricaoCompromisso(compromissoId, novaDescricao);
     }
 
     @PatchMapping("/pessoa")
-    public CompromissoModel alterarPessoasCompromisso(String compromissoId, String nomePessoa) {
+    public CompromissoModel alterarPessoasCompromisso(@RequestParam(name="compromissoId") String compromissoId, @RequestParam(name="nomePessoa") String nomePessoa) {
 
         return compromissoService.alterarPessoasCompromisso(compromissoId, nomePessoa);
     }
 
     @PatchMapping("/remove-pessoa")
-    public CompromissoModel excluirPessoaDoCompromisso(String compromissoId, String nomePessoa) {
+    public CompromissoModel excluirPessoaDoCompromisso(@RequestParam(name="compromissoId") String compromissoId, @RequestParam(name="nomePessoa") String nomePessoa) {
 
         return compromissoService.excluirPessoaDoCompromisso(compromissoId, nomePessoa);
     }
 
     @DeleteMapping
-    public void excluirCompromisso(String compromissoId) {
+    public void excluirCompromisso(@RequestParam(name="compromissoId") String compromissoId) {
         compromissoService.excluirCompromisso(compromissoId);
     }
 }
